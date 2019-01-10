@@ -5,11 +5,15 @@
  */
 package sanek.nikitin.entity;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -49,47 +53,70 @@ public class Country implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 3)
+    @Column(columnDefinition = "char")
     private String code;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 52)
+    @Column(columnDefinition = "char")
     private String name;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 13)
+    @Column(columnDefinition = "char")
     private String continent;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 26)
+    //@Enumerated(EnumType.STRING)
+    //@Column(columnDefinition = "char")
+    //@Type("char")
     private String region;
+    
     @Basic(optional = false)
     @NotNull
     private float surfaceArea;
+    
     private Short indepYear;
     @Basic(optional = false)
     @NotNull
     private int population;
+    
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     private Float lifeExpectancy;
     private Float gnp;
     private Float gNPOld;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
+    @Column(columnDefinition = "char")
     private String localName;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
+    @Column(columnDefinition = "char")
     private String governmentForm;
+    
     @Size(max = 60)
+    @Column(columnDefinition = "char")
     private String headOfState;
+    
     private Integer capital;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2)
+    @Column(columnDefinition = "char")
     private String code2;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "countryCode")
     private Collection<City> cityCollection;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
     private Collection<Countrylanguage> countrylanguageCollection;
 

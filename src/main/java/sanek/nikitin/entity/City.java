@@ -7,6 +7,7 @@ package sanek.nikitin.entity;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -38,14 +39,19 @@ public class City implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     private Integer id;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 35)
+    @Column(columnDefinition = "char")
     private String name;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
+    @Column(columnDefinition = "char")
     private String district;
+    
     @Basic(optional = false)
     @NotNull
     private int population;

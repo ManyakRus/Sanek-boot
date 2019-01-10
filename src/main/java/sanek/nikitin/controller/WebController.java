@@ -18,7 +18,7 @@ import sanek.nikitin.model.Person;
  
 @Controller
 @ComponentScan
-public class MainController {
+public class WebController {
  
     private static List<Person> persons = new ArrayList<Person>();
  

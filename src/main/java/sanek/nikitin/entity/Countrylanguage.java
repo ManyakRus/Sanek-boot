@@ -32,18 +32,24 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Countrylanguage implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @EmbeddedId
     protected CountrylanguagePK countrylanguagePK;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2)
     private String isOfficial;
+    
     @Basic(optional = false)
     @NotNull
     private float percentage;
+    
     @JoinColumn(name = "CountryCode", referencedColumnName = "Code", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Country country;
+    
+    
 
     public Countrylanguage() {
     }

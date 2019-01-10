@@ -7,6 +7,7 @@ package sanek.nikitin.entity;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -21,10 +22,13 @@ public class CountrylanguagePK implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 3)
+    @Column(columnDefinition = "char")
     private String countryCode;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
+    @Column(columnDefinition = "char")
     private String language;
 
     public CountrylanguagePK() {
