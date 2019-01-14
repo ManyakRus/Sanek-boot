@@ -1,4 +1,4 @@
-package sanek.nikitin.controller;
+package sanek.nikitin.webController;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
