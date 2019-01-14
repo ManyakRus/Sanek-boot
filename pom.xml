@@ -11,12 +11,15 @@
     <groupId>sanek</groupId>
     <artifactId>nikitin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>ear</packaging>
+    <packaging>jar</packaging>
     <name>nikitin</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <java-version>1.8</java-version>
     </properties>
 
     <dependencies>
