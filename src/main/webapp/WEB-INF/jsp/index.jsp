@@ -31,6 +31,7 @@
       
       <BR/>
       <a href="${pageContext.request.contextPath}/sendEmail">отправить емайл</a> <BR/> 
+      <a href="${pageContext.request.contextPath}/sendJMS">отправить JMS</a> <BR/> 
       <a href="${pageContext.request.contextPath}/personList">Person List</a>  
        
    </body>

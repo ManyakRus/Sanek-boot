@@ -6,6 +6,8 @@ package sanek.nikitin.webController;
  * and open the template in the editor.
  */
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +15,14 @@ import org.springframework.context.annotation.ComponentScan;
  
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import sanek.nikitin.crud.CountryCRUD;
+import sanek.nikitin.jms.Consumer;
+import sanek.nikitin.jms.Producer;
 import sanek.nikitin.model.Person;
  
 @Controller
@@ -27,6 +33,12 @@ public class WebController {
     
     @Autowired
     CountryCRUD countryCRUD;
+    
+    @Autowired
+    Producer producer;
+ 
+    @Autowired
+    Consumer consumer;
  
     static {
         persons.add(new Person("Bill", "Gates"));
@@ -51,6 +63,24 @@ public class WebController {
         model.addAttribute("persons", persons);
  
         return "personList";
+    }
+ 
+    @GetMapping("/sendJMS" )
+    public String sendJMS() {
+ 
+        producer.send("Hello " + LocalDateTime.now());
+        
+        return "sendJMS";
+    }
+ 
+    @GetMapping("/showJMS" )
+    public ModelAndView showJMS() {
+ 
+        String mess = consumer.getAll();
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("mess", mess);
+        
+        return mav;
     }
  
 }
