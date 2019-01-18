@@ -40,13 +40,13 @@ public class Consumer {
     private Queue queue;
 
     @JmsListener(destination = "sample.queue")
-    @SendTo("outQueue")
-    public String receiveQueue(String text) {
+    //@SendTo("outQueue")
+    public void receiveQueue(String text) {
         System.out.println(text);
 
         allMessages = allMessages + text + "<br/>";
         
-        return text;
+        //return text;
     }
 
 

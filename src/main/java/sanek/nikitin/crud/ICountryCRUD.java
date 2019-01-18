@@ -6,19 +6,16 @@
 package sanek.nikitin.crud;
 
 import java.util.ArrayList;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 import sanek.nikitin.entity.Country;
 
 /**
  *
  * @author Пользователь2
  */
-public interface ICountryCRUD extends JpaRepository<Country, String> {
-    
-    public ArrayList<Country> findTop10By();
-    
-    public Country findByCode(String code);
-    
+public interface ICountryCRUD {
+
+    ArrayList<Country> findAll();
+
+    Country findByCode(String code);
     
 }

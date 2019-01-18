@@ -17,14 +17,16 @@ import sanek.nikitin.entity.Country;
  */
 @Transactional
 @Component
-public class CountryCRUD{
+public class CountryCRUD implements ICountryCRUD{
     @Autowired
-    ICountryCRUD iCountryCRUD;
+    ICountryJPA iCountryCRUD;
 
+    @Override
     public ArrayList<Country> findAll() {
-        return iCountryCRUD.findTop10By();
+        return iCountryCRUD.findTop3By();
     }
 
+    @Override
     public Country findByCode(String code) {
         return iCountryCRUD.findByCode(code);
     }
