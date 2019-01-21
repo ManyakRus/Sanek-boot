@@ -32,7 +32,8 @@
       <BR/>
       <a href="${pageContext.request.contextPath}/sendEmail">отправить емайл</a> <BR/> 
       <a href="${pageContext.request.contextPath}/sendJMS">отправить JMS</a> <BR/> 
-      <a href="${pageContext.request.contextPath}/personList">Person List</a>  
+      <a href="${pageContext.request.contextPath}/personList">Person List</a> <BR/>
+      <a href="${pageContext.request.contextPath}/country?code=RUS">find country code=RUS</a>  <BR/>
        
    </body>
    
