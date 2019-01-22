@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import sanek.nikitin.crud.CountryCRUD;
 import sanek.nikitin.crud.ICountryCRUD;
 import sanek.nikitin.entity.Country;
-import sanek.nikitin.crud.ICountryJPA;
+import sanek.nikitin.crud.CountryJPA;
 
 /**
  * @author Пользователь2

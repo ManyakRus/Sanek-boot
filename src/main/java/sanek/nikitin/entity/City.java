@@ -43,13 +43,13 @@ public class City implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 35)
-    @Column(columnDefinition = "char")
+    //@Column(columnDefinition = "char")
     private String name;
     
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
-    @Column(columnDefinition = "char")
+    //@Column(columnDefinition = "char")
     private String district;
     
     @Basic(optional = false)

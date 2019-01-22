@@ -6,7 +6,11 @@
 
 package sanek.nikitin.webController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javax.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.http.MediaType;
@@ -16,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import sanek.nikitin.crud.CountryCRUD;
 import sanek.nikitin.entity.Country;
+import sanek.nikitin.imodel.ICountry;
+import sanek.nikitin.modelError.CountryError;
 
 /**
  * @author Sanek
@@ -23,15 +29,33 @@ import sanek.nikitin.entity.Country;
  */
 @RestController
 public class WebRestController {
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     CountryCRUD countryCrud;
     
-    @GetMapping(name="country", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Country getCountry(@RequestParam String code, HttpServletResponse response) {
+    @GetMapping(name="countryjson", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public String getCountry(@RequestParam String code, HttpServletResponse response) {
+        
         Country country = countryCrud.findByCode(code);
-        response.setStatus(HttpServletResponse.SC_OK);
-        return country;
+//        CountryError countryError = new CountryError();
+//        countryError.setCode(code);
+//        countryError.setErrorMessage("error message");
+//        
+//        ICountry country = (ICountry) countryError;
+//        
+//        response.setStatus(HttpServletResponse.SC_OK);
+
+        ObjectMapper mapper = new ObjectMapper();
+        String result = "";
+        try {
+            result = mapper.writeValueAsString(country);
+        } catch (JsonProcessingException ex) {
+            logger.error("" + ex);
+        }
+        logger.info("json:\n" + result);
+        
+        return result;
     }
     
 }

@@ -19,7 +19,7 @@ import sanek.nikitin.entity.Country;
 @Component
 public class CountryCRUD implements ICountryCRUD{
     @Autowired
-    ICountryJPA iCountryCRUD;
+    CountryJPA iCountryCRUD;
 
     @Override
     public ArrayList<Country> findAll() {

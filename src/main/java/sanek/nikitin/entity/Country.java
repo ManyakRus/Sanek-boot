@@ -22,6 +22,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import sanek.nikitin.imodel.ICountry;
 
 /**
  *
@@ -46,26 +47,26 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Country.findByHeadOfState", query = "SELECT c FROM Country c WHERE c.headOfState = :headOfState")
     , @NamedQuery(name = "Country.findByCapital", query = "SELECT c FROM Country c WHERE c.capital = :capital")
     , @NamedQuery(name = "Country.findByCode2", query = "SELECT c FROM Country c WHERE c.code2 = :code2")})
-public class Country implements Serializable {
+public class Country implements Serializable, ICountry {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 3)
-    @Column(columnDefinition = "char")
+    //@Column(columnDefinition = "char")
     private String code;
     
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 52)
-    @Column(columnDefinition = "char")
+    //@Column(columnDefinition = "char")
     private String name;
     
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 13)
-    @Column(columnDefinition = "char")
+    //@Column(columnDefinition = "char")
     private String continent;
     
     @Basic(optional = false)
@@ -93,17 +94,17 @@ public class Country implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
-    @Column(columnDefinition = "char")
+    //@Column(columnDefinition = "char")
     private String localName;
     
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
-    @Column(columnDefinition = "char")
+    //@Column(columnDefinition = "char")
     private String governmentForm;
     
     @Size(max = 60)
-    @Column(columnDefinition = "char")
+    //@Column(columnDefinition = "char")
     private String headOfState;
     
     private Integer capital;
@@ -111,7 +112,7 @@ public class Country implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2)
-    @Column(columnDefinition = "char")
+    //@Column(columnDefinition = "char")
     private String code2;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "countryCode")
