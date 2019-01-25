@@ -16,8 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+//import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -41,19 +41,19 @@ public class City implements Serializable {
     private Integer id;
     
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 35)
+    //@NotNull
+    //@Size(min = 1, max = 35)
     //@Column(columnDefinition = "char")
     private String name;
     
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 20)
+    //@NotNull
+    //@Size(min = 1, max = 20)
     //@Column(columnDefinition = "char")
     private String district;
     
     @Basic(optional = false)
-    @NotNull
+    //@NotNull
     private int population;
     @JoinColumn(name = "CountryCode", referencedColumnName = "Code")
     @ManyToOne(optional = false)

@@ -13,8 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+//import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -37,12 +37,12 @@ public class Countrylanguage implements Serializable {
     protected CountrylanguagePK countrylanguagePK;
     
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 2)
+    //@NotNull
+    //@Size(min = 1, max = 2)
     private String isOfficial;
     
     @Basic(optional = false)
-    @NotNull
+    //@NotNull
     private float percentage;
     
     @JoinColumn(name = "CountryCode", referencedColumnName = "Code", insertable = false, updatable = false)

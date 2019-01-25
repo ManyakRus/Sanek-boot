@@ -18,8 +18,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+//import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import sanek.nikitin.imodel.ICountry;
@@ -52,38 +52,38 @@ public class Country implements Serializable, ICountry {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 3)
+    //@NotNull
+    //@Size(min = 1, max = 3)
     //@Column(columnDefinition = "char")
     private String code;
     
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 52)
+    //@NotNull
+    //@Size(min = 1, max = 52)
     //@Column(columnDefinition = "char")
     private String name;
     
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 13)
+    //@NotNull
+    //@Size(min = 1, max = 13)
     //@Column(columnDefinition = "char")
     private String continent;
     
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 26)
+    //@NotNull
+    //@Size(min = 1, max = 26)
     //@Enumerated(EnumType.STRING)
     //@Column(columnDefinition = "char")
     //@Type("char")
     private String region;
     
     @Basic(optional = false)
-    @NotNull
+    //@NotNull
     private float surfaceArea;
     
     private Short indepYear;
     @Basic(optional = false)
-    @NotNull
+    //@NotNull
     private int population;
     
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -92,26 +92,26 @@ public class Country implements Serializable, ICountry {
     private Float gNPOld;
     
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
+    //@NotNull
+    //@Size(min = 1, max = 45)
     //@Column(columnDefinition = "char")
     private String localName;
     
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
+    //@NotNull
+    //@Size(min = 1, max = 45)
     //@Column(columnDefinition = "char")
     private String governmentForm;
     
-    @Size(max = 60)
+    //@Size(max = 60)
     //@Column(columnDefinition = "char")
     private String headOfState;
     
     private Integer capital;
     
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 2)
+    //@NotNull
+    //@Size(min = 1, max = 2)
     //@Column(columnDefinition = "char")
     private String code2;
     

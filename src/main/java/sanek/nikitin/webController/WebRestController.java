@@ -34,7 +34,7 @@ public class WebRestController {
     @Autowired
     CountryCRUD countryCrud;
     
-    @GetMapping(name="countryjson", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value="/countryjson", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public String getCountry(@RequestParam String code, HttpServletResponse response) {
         
         Country country = countryCrud.findByCode(code);

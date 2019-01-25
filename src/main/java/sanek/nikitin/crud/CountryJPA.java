@@ -16,7 +16,7 @@ import sanek.nikitin.entity.Country;
  *
  * @author Пользователь2
  */
-@RepositoryRestResource(path = "country")
+@RepositoryRestResource(path = "/country")
 public interface CountryJPA extends JpaRepository<Country, String> {
     
     public ArrayList<Country> findTop3By();

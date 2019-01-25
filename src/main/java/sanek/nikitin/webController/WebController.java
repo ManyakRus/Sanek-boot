@@ -83,4 +83,13 @@ public class WebController {
         return mav;
     }
  
+    @GetMapping("/admin" )
+    public ModelAndView admin() {
+ 
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("admin");
+        
+        return mav;
+    }
+ 
 }

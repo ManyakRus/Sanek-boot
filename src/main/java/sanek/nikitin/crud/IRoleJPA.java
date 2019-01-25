@@ -6,18 +6,17 @@
 
 package sanek.nikitin.crud;
 
-import java.util.ArrayList;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import sanek.nikitin.entity.City;
+import sanek.nikitin.entity.Role;
+import sanek.nikitin.entity.User;
 
 /**
+ *
  * @author Sanek
- * @date 22.01.2019 13:58:49
+ * @date 25.01.2019 12:34:45
  */
-@RepositoryRestResource(path = "/city")
-public interface CityJPA extends JpaRepository<City, Integer> {
-    
-    
+public interface IRoleJPA  extends JpaRepository<Role, Long> {
+    public Role findByName(String name);
+
 }
