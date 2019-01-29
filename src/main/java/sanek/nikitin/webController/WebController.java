@@ -6,12 +6,18 @@ package sanek.nikitin.webController;
  * and open the template in the editor.
  */
 
+import java.security.Principal;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
  
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -57,6 +63,7 @@ public class WebController {
         return mav;
     }
  
+    @Secured("ADMIN")
     @RequestMapping(value = { "/personList" }, method = RequestMethod.GET)
     public String viewPersonList(Model model) {
  
@@ -84,10 +91,37 @@ public class WebController {
     }
  
     @GetMapping("/admin" )
-    public ModelAndView admin() {
+    public ModelAndView admin(Authentication authentication) {
  
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        Collection<? extends GrantedAuthority> list = userDetails.getAuthorities();
+        String roles = "";
+        for (GrantedAuthority l:list) {
+            roles = roles + l.toString() + "<BR/>";
+        }
+        
         ModelAndView mav = new ModelAndView();
         mav.setViewName("admin");
+        mav.addObject("login", userDetails.getUsername());
+        mav.addObject("roles", roles);
+        
+        return mav;
+    }
+ 
+    @GetMapping("/login" )
+    public ModelAndView login(Authentication authentication) {
+ 
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("login");
+        
+        return mav;
+    }
+ 
+    @GetMapping("/registration" )
+    public ModelAndView registration(Authentication authentication) {
+ 
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("registration");
         
         return mav;
     }
