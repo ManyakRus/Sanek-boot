@@ -12,8 +12,8 @@
                 href="${pageContext.request.contextPath}/css/style.css"/>
    </head>
    <body>
-      <h1>Привет</h1>
-      <h2>${message}</h2>
+      Hello ${login} ! your roles: ${roles}<BR/>
+      
        
         <table border="1" cellpadding="5">
             <caption><h2>List of countries</h2></caption>
@@ -34,6 +34,8 @@
       <a href="${pageContext.request.contextPath}/sendJMS">отправить JMS</a> <BR/> 
       <a href="${pageContext.request.contextPath}/personList">Person List</a> <BR/>
       <a href="${pageContext.request.contextPath}/countryjson?code=RUS">find country code=RUS</a>  <BR/>
+      <a href="/login">Войти</a> <BR/> 
+      <a href="/registration">Зарегистрироваться</a> <BR/> 
        
    </body>
    
